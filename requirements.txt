@@ -1,0 +1,23 @@
+# Core Framework
+Flask==2.0.1
+Flask-Session==0.8.0
+python-dotenv==0.19.0
+
+# Database
+PyMySQL==1.0.2
+
+# Security
+bcrypt==3.2.0
+
+# NLP & ML
+spacy==3.5.0
+# After installing spacy, run: python -m spacy download en_core_web_sm
+
+# Utilities
+tqdm==4.65.0  # For progress bars
+python-dateutil==2.8.2  # For date/time handling
+
+# Development
+pytest==7.4.0  # For testing
+black==23.3.0  # For code formatting
+flake8==6.0.0  # For linting

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Assistant Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Auth Section -->
+        <div id="auth-section" class="auth-section">
+            <h1>Educational Assistant</h1>
+            <div id="login-form" class="auth-form">
+                <h2>Login</h2>
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button onclick="login()">Login</button>
+                <p>Don't have an account? <a href="#" onclick="toggleAuthForm()">Register</a></p>
+            </div>
+            
+            <div id="register-form" class="auth-form hidden">
+                <h2>Register</h2>
+                <input type="text" id="reg-username" placeholder="Username" required>
+                <input type="email" id="reg-email" placeholder="Email" required>
+                <input type="password" id="reg-password" placeholder="Password" required>
+                <input type="text" id="reg-firstname" placeholder="First Name" required>
+                <input type="text" id="reg-lastname" placeholder="Last Name" required>
+                <input type="text" id="reg-grade" placeholder="Grade Level (optional)">
+                <button onclick="register()">Register</button>
+                <p>Already have an account? <a href="#" onclick="toggleAuthForm()">Login</a></p>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div id="chat-section" class="chat-section hidden">
+            <div class="sidebar">
+                <div class="user-info">
+                    <span id="user-name">User</span>
+                    <button onclick="logout()" class="logout-btn">Logout</button>
+                </div>
+                <div class="menu">
+                    <button onclick="showTab('chat')" class="active">Chat</button>
+                    <button onclick="showTab('notes')">Notes</button>
+                    <button onclick="showTab('schedule')">Schedule</button>
+                    <button onclick="showTab('reminders')">Reminders</button>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <!-- Chat Tab -->
+                <div id="chat-tab" class="tab-content">
+                    <div class="chat-container">
+                        <div id="chat-messages" class="messages"></div>
+                        <div class="input-area">
+                            <input type="text" id="message-input" placeholder="Type your message...">
+                            <button onclick="sendMessage()">Send</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes Tab -->
+                <div id="notes-tab" class="tab-content hidden">
+                    <div class="notes-container">
+                        <div class="notes-header">
+                            <h2>My Notes</h2>
+                            <button onclick="showNewNoteForm()">New Note</button>
+                        </div>
+                        <div id="notes-list"></div>
+                    </div>
+                </div>
+
+                <!-- Schedule Tab -->
+                <div id="schedule-tab" class="tab-content hidden">
+                    <div class="schedule-container">
+                        <div class="schedule-header">
+                            <h2>Study Schedule</h2>
+                            <button onclick="showNewScheduleForm()">Add Schedule</button>
+                        </div>
+                        <div id="schedule-list"></div>
+                    </div>
+                </div>
+
+                <!-- Reminders Tab -->
+                <div id="reminders-tab" class="tab-content hidden">
+                    <div class="reminders-container">
+                        <div class="reminders-header">
+                            <h2>Reminders</h2>
+                            <button onclick="showNewReminderForm()">Add Reminder</button>
+                        </div>
+                        <div id="reminders-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for new items -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-form"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

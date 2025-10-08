@@ -1,4 +1,4 @@
-# Educational Assistant Chatbot
+# Educational Assistant Chatbot!
 
 A text-based educational assistant chatbot built with Python, Flask, and MySQL. The chatbot helps students with academic questions, study tips, scheduling, and note-taking.
 
